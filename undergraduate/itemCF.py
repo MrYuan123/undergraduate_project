@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*-coding:utf-8 -*-
 import math
+MAXmovies = 20
 
 class itemCF(object):
     def __init__(self):
@@ -8,12 +9,33 @@ class itemCF(object):
 
     def itemCF_alg(self,ID,uLists, mLists):
         W = self.itemSimilarity(uLists,mLists)
-
         for u in W:
             for v in W[u]:
                 print("%s and %s : %s"%(u,v,W[u][v]))
+        #
+        # with open("similarity.csv","w",newline='') as f:
+        #     writer = csv.writer(f)
+        #     for item in W:
+        #         temp = dict()
+        #         temp[item] = W[item]
+        #         print(temp)
+        #         writer.writerow(temp)
 
-        return W
+        return
+
+        # for u in W:
+        #     for v in W[u]:
+        #         print("%s and %s : %s"%(u,v,W[u][v]))
+        #
+        # rank =  dict()
+        # IDitems = uLists[ID]
+        # for item in IDitems:
+        #     if len(W[item]) < MAXmovies:
+        #         rank.update(W[item])
+        #     else:
+        #         pass
+        #
+        # return W
 
     def itemSimilarity(self, uLists, mLists):
         C = dict() # matrix
@@ -44,7 +66,7 @@ class itemCF(object):
 
         for m in C:
             for n in C[m]:
-                C[m][n] = C[m][n]/math.sqrt(len(mLists[m])*len(mLists[n]))
+                C[m][n] = 1/math.log(1 + C[m][n])/math.sqrt(len(mLists[m])*len(mLists[n]))
         return C
 
         # for i in uLists:
