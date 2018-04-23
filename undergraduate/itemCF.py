@@ -1,6 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*-coding:utf-8 -*-
-import math
+import math, numpy,csv
 MAXmovies = 20
 
 class itemCF(object):
@@ -9,10 +9,19 @@ class itemCF(object):
 
     def itemCF_alg(self,ID,uLists, mLists):
         W = self.itemSimilarity(uLists,mLists)
-        for u in W:
-            for v in W[u]:
-                print("%s and %s : %s"%(u,v,W[u][v]))
-        #
+        with open("similarity.csv","w",newline='') as f:
+            writer = csv.writer(f)
+            for u in W:
+                for v in W[u]:
+                    temp = list()
+                    temp.append(u)
+                    temp.append(v)
+                    temp.append(W[u][v])
+                    writer.writerow(temp)
+                    print("%s and %s : %s"%(u,v,W[u][v]))
+
+        # numpy.savetxt('similarity.csv', W, delimiter = ',')
+
         # with open("similarity.csv","w",newline='') as f:
         #     writer = csv.writer(f)
         #     for item in W:
@@ -55,14 +64,14 @@ class itemCF(object):
                                 C[u][v] = 1
                         else:
                             if v in C:
-                                pass
+                                if u in C[v]:
+                                    C[v][u] += 1
+                                else:
+                                    C[v][u] = 1
                             else:
                                 C[v] = dict()
-
-                            if u in C[v]:
-                                C[v][u] += 1
-                            else:
                                 C[v][u] = 1
+
 
         for m in C:
             for n in C[m]:
