@@ -10,9 +10,9 @@ def indexPage(request):
 def testPage(request):
 	return render(request, "test.html",locals())
 
-def sortM():
+def sortM(request):
 	print("return json data")
 	response_data = dict()
-	response_data["1"] = "11111"
-	response_data["2"] = "1dddd"
+	response_data["first"] = "11111"
+	response_data["second"] = "1dddd"
 	return HttpResponse(json.dumps(response_data),content_type = "application/json")

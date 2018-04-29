@@ -55,59 +55,6 @@
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-messages -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
@@ -157,35 +104,61 @@
                                     <tr>
                                         <th>MovieId</th>
                                         <th>title</th>
-                                        <th>similarity</th>
                                         <th>gneres</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>1</td>
-                                        <td>Internet Explorer 4.0</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">4</td>
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>2</td>
-                                        <td>Internet Explorer 5.0</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">5</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>3</td>
-                                        <td>Internet Explorer 5.5</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">5.5</td>
+                                    <!-- <tr class="odd gradeX">
+                                        <td>260</td>
+                                        <td>Star Wars: Episode IV - A New Hope (1977)</td>
+                                        <td class="center">Action|Adventure|Sci-Fi</td>
                                     </tr>
                                     <tr class="even gradeA">
-                                        <td>4</td>
-                                        <td>Internet Explorer 6</td>
-                                        <td>Win 98+</td>
-                                        <td class="center">6</td>
+                                        <td>296</td>
+                                        <td>Pulp Fiction (1994)</td>
+                                        <td class="center">Comedy|Crime|Drama|Thriller</td>
                                     </tr>
+                                    <tr class="even gradeA">
+                                        <td>318</td>
+                                        <td>Shawshank Redemption, The (1994)Crime|Drama</td>
+                                        <td class="center">Crime|Drama</td>
+                                    </tr>
+                                    <tr class="even gradeA">
+                                        <td>356</td>
+                                        <td>Forrest Gump (1994)</td>
+                                        <td class="center">Comedy|Drama|Romance|War</td>
+                                    </tr>
+                                    <tr class="even gradeA">
+                                        <td>480</td>
+                                        <td>Jurassic Park (1993)</td>
+                                        <td class="center">Action|Adventure|Sci-Fi|Thriller</td>
+                                    </tr>
+                                    <tr class="even gradeA">
+                                        <td>527</td>
+                                        <td>Schindler's List (1993)</td>
+                                        <td class="center">Drama|War</td>
+                                    </tr>
+                                    <tr class="even gradeA">
+                                        <td>589</td>
+                                        <td>Terminator 2: Judgment Day (1991)</td>
+                                        <td class="center">Action|Sci-Fi</td>
+                                    </tr>
+                                    <tr class="even gradeA">
+                                        <td>593</td>
+                                        <td>Silence of the Lambs, The (1991)</td>
+                                        <td class="center">Crime|Horror|Thriller</td>
+                                    </tr>
+                                    <tr class="even gradeA">
+                                        <td>608</td>
+                                        <td>Fargo (1996)</td>
+                                        <td class="center">Comedy|Crime|Drama|Thriller</td>
+                                    </tr>
+                                    <tr class="even gradeA">
+                                        <td>780</td>
+                                        <td>Independence Day (a.k.a. ID4) (1996)</td>
+                                        <td class="center">Action|Adventure|Sci-Fi|Thriller</td>
+                                    </tr> -->
+                                    <div id="content"></div>
                                 </tbody>
                             </table>
                         </div>
@@ -234,7 +207,6 @@
     <script>
     function loadpage()
     {
-      alert("ok");
       $.ajax(
         {
             url:"/sort/",
@@ -242,8 +214,8 @@
             dataType:"JSON",
             data:{"ID":$("#Mid").val()},
             success: function(data){
-              Mdata = data
-              alert("ss");
+              var a = "hello, this test is successful!";
+              alert(a);
             },
             error:function (jqXHR, textStatus, errorThrown) {
               alert("error!!!");

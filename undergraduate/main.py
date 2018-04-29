@@ -20,20 +20,20 @@ class startPro(object):
 		userLists = self.Handle.users_standard()
 
 		#============== user alg section ================
-		# print("UserCF_Alg section is starting.............")
-		# ID = "1"
-		# Rlist = self.userCF_alg.userCF_alg(ID,userLists,movieLists)
+		print("UserCF_Alg section is starting.............")
+		ID = "1"
+		Rlist = self.userCF_alg.userCF_alg(ID,userLists,movieLists)
 
 		#============== item alg section ================
-		print("ItemCF_alg section is starting.............")
-		ID = "2"
-		Rlist = self.itemCF_alg.itemCF_alg(ID,userLists,movieLists)
+		# print("ItemCF_alg section is starting.............")
+		# ID = "2"
+		# Rlist = self.itemCF_alg.itemCF_alg(ID,userLists,movieLists)
 
 		##============= show section ===============
-		# print("Once:")
-		# self.display.display_movies(userLists[ID])
-		# print("Recommand:")
-		# self.display.display_movies(Rlist)
+		print("Once:")
+		self.display.display_movies(userLists[ID])
+		print("Recommand:")
+		self.display.display_movies(Rlist)
 
 if __name__ == "__main__":
 	s = startPro()
