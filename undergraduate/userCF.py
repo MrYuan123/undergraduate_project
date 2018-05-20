@@ -51,6 +51,25 @@ class userCF(object):
 			for v, cuv in related_users.items():
 				W[u][v] = cuv/math.sqrt(N[u]*N[v])
 				#print(W[u][v])
+
+
+
+		for m in W:
+			details = W[m]
+			for n in details:
+				temp = list()
+				print(m)
+				print(n)
+				print(details[n])
+				temp.append(m)
+				temp.append(n)
+				temp.append(details[n])
+				with open("user_similarity.csv", 'a', newline='') as f:
+					writer = csv.writer(f)
+					writer.writerow(temp)
+
+		print("qwwwwwwwwwwwww")
+		input()
 		return W
 
 	# Genreate Recommand list.
