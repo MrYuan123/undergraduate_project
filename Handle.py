@@ -11,7 +11,7 @@ class Handle(object):
 	# User is the key.
 	def users_standard(self):
 		userMode = dict()
-		csvfile = open("ratingsA.csv","r")
+		csvfile = open("ratingsT.csv","r")
 		reader = csv.reader(csvfile)
 
 		for line in reader:
@@ -27,7 +27,7 @@ class Handle(object):
 	# Movie is the key.
 	def movies_standard(self):
 		movieMode = dict()
-		csvfile = open("ratingsA.csv","r")
+		csvfile = open("ratingsT.csv","r")
 		reader = csv.reader(csvfile)
 
 		for line in reader:

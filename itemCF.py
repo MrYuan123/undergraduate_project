@@ -30,7 +30,7 @@ class itemCF(object):
         try:
             cursor.execute(sql_command)
             results = cursor.fetchall()
-            results = results[:30]
+            results = results[:MAXmovies]
             for item in results:
                 return_list.append(item[1])
                 print(item)
